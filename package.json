@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/nodemon --exec node src/"
+    "start": "node_modules/.bin/nodemon --exec node src/",
+    "migrate:dev": "npx sequelize db:drop;npx sequelize db:create;npx sequelize db:migrate;npx sequelize db:seed:all;"
   },
   "dependencies": {
+    "bcrypt": "^3.0.1",
     "config": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
