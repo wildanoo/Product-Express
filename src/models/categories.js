@@ -7,7 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true
   });
   categories.associate = function(models) {
-    // associations can be defined here
+    categories.belongsToMany(models.products, {
+      through: 'product_category',
+      foreignKey: 'category_id',
+      as: 'products'
+    })
   };
   return categories;
 };

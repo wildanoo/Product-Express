@@ -8,7 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true
   });
   products.associate = function(models) {
-    // associations can be defined here
+    products.belongsToMany(models.categories, {
+      through: 'product_category',
+      foreignKey: 'product_id',
+      as: 'categories'
+    })
   };
   return products;
 };
