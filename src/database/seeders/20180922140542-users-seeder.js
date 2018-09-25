@@ -6,7 +6,7 @@ module.exports = {
     const pass = await bcrypt.hash(process.env.ADMIN_PASS, parseInt(process.env.SALT_ROUND));
 
       return queryInterface.bulkInsert('users', [{
-        userName: 'admin',
+        username: 'admin',
         password: pass,
         email: 'admin@admin.com',
         is_admin: 1,
