@@ -4,12 +4,16 @@ const morgan = require('morgan');
 const express = require('express');
 const config = require('config');
 
+const passport = require('passport');
+require('./auth/auth');
+
 const winston = require('../config/winston');
 const routes = require('./routes');
 
 const app = express();
 
 app.use(cors());
+app.use(passport.initialize());
 app.use(morgan('combined',{stream: winston.stream}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

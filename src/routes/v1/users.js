@@ -1,8 +1,8 @@
 const express = require('express');
+const usersController = require('../../controllers/users')
 const route = express.Router();
 
-route.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+route.post('/login',usersController.login);
+
 
 module.exports = route;
